@@ -17,7 +17,15 @@ const expenseSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["Food", "Travel", "Rent", "Shopping", "Bills", "Other"],
+      enum: [
+        "Food",
+        "Transport",
+        "Shopping",
+        "Rent",
+        "Bills",
+        "Entertainment",
+        "Other",
+      ],
       default: "Other",
     },
     type: {
@@ -33,4 +41,5 @@ const expenseSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Expense", expenseSchema);
+module.exports =
+  mongoose.models.Expense || mongoose.model("Expense", expenseSchema);
