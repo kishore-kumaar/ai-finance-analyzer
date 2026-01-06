@@ -1,0 +1,16 @@
+mongodb+srv://<db_username>:<db_password>@cluster0.ocwtxcd.mongodb.net/?appName=Cluster0
+
+
+
+
+MONGO_URI=mongodb+srv://finance_simple:Finance1234@cluster0.ocwtxcd.mongodb.net/financeDB?appName=Cluster0
+
+
+
+
+
+username:
+finance_simple
+
+pwd:
+Finance1234

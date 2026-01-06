@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config";
+
 
 // 🔹 Reusable card style
 const cardStyle = {
@@ -29,8 +31,9 @@ function Calendar() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/expenses/${userId}`
-      );
+  `${API_BASE_URL}/api/expenses/${userId}`
+);
+
 
       const selectedDayString = date.toDateString();
 

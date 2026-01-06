@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config";
+
 
 function AddExpense() {
   const navigate = useNavigate();
@@ -34,14 +36,16 @@ function AddExpense() {
     try {
       const userId = localStorage.getItem("userId");
 
-      await axios.post("http://localhost:5000/api/expenses", {
-        title,
-        amount,
-        category,
-        type,
-        date,
-        user: userId,
-      });
+      await axios.post(`${API_BASE_URL}/api/expenses`, {
+  title,
+  amount,
+  category,
+  type,
+  date,
+  user: userId,
+});
+
+    
 
       alert("Transaction added successfully");
       navigate("/dashboard");

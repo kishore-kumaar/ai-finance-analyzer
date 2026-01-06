@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config";
+
 
 function EditTransaction() {
   const navigate = useNavigate();
@@ -22,14 +24,14 @@ function EditTransaction() {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/expenses/${transaction._id}`,
-        {
-          title,
-          amount,
-          category,
-          type,
-        }
-      );
+  `${API_BASE_URL}/api/expenses/${transaction._id}`,
+  {
+    title,
+    amount,
+    category,
+    type,
+  }
+);
 
       alert("Transaction updated successfully");
       navigate(-1); // go back

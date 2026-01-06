@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import API_BASE_URL from "../config";
+
 
 // 🔹 Reusable card style
 const cardStyle = {
@@ -33,9 +35,10 @@ function Dashboard() {
       if (!userId) return;
 
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/expenses/${userId}`
-        );
+       const res = await axios.get(
+  `${API_BASE_URL}/api/expenses/${userId}`
+);
+
         setExpenses(res.data);
       } catch (error) {
         console.log("Error fetching expenses");
@@ -52,8 +55,9 @@ function Dashboard() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/summary/${userId}/${selectedYear}/${selectedMonth}`
-      );
+  `${API_BASE_URL}/api/summary/${userId}/${selectedYear}/${selectedMonth}`
+);
+
       setMonthSummary(res.data);
     } catch (error) {
       console.log("Error fetching month summary");
@@ -66,15 +70,16 @@ function Dashboard() {
     if (!userId) return;
 
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/insights/${userId}`,
-        {
-          params: {
-            year: selectedYear,
-            month: selectedMonth,
-          },
-        }
-      );
+     const res = await axios.get(
+  `${API_BASE_URL}/api/insights/${userId}`,
+  {
+    params: {
+      year: selectedYear,
+      month: selectedMonth,
+    },
+  }
+);
+
       setInsights(res.data.insights);
     } catch (error) {
       console.log("Error fetching AI insights");

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import API_BASE_URL from "../config";
+
 
 // 🔹 Reusable card style
 const cardStyle = {
@@ -35,7 +37,8 @@ function ManageTransactions() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/expenses/${id}`
+  `${API_BASE_URL}/api/expenses/${id}`
+
       );
 
       setTransactions((prev) =>
